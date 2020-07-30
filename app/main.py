@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 import redis
 import uuid
 
-from config import settings
+from conf.config import settings
 
 pool = redis.ConnectionPool(host=settings.redishost, port=settings.port, db=settings.db)
 r = redis.Redis(connection_pool=pool)
