@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 import redis
 import uuid
 
-from conf.config import settings
+from app.conf.config import settings
 
 pool = redis.ConnectionPool(host=settings.redishost, port=settings.port, db=settings.db)
 r = redis.Redis(connection_pool=pool)
@@ -10,7 +10,7 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"msg": "Hello World"}
+    return {"msg": "CountAPI is up!"}
 
 @app.get("/get/{key}")
 async def getkey(key: str):

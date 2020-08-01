@@ -1,0 +1,12 @@
+version: '2'
+services:
+    web:
+        build: .
+        ports:
+            - "8000:8000"
+        volumes:
+            - .:/countapi
+        depends_on:
+            - redis
+    redis:
+        image: redis
